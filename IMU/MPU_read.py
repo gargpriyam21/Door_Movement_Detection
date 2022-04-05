@@ -53,12 +53,26 @@ def main():
 #	mqttClient.loop_start()
 	f = open("door_open.txt", 'w')
 	print("starting loop")
+	label = ", STATIONARY"
+	pastData = [0,0,0]
+	avg = 0;
 	while True:
 		data = read_MPU(mpu)
 		#mqttClient.publish(TOPIC_MPU, data, 2, True)
-		print(data)
-		f.write(str(datetime.datetime.now()) + ": " + str(data))
+		#print(data)
+		pastData[2] = pastData[1]
+		pastData[1] = pastData[0]
+		pastData[0] = mpu.get_gyro_data().get('x')
+		avg = (pastData[0] + pastData[1] + pastData[2]) / 3
+		if avg > 50:
+			label = ", OPEN"
+		elif avg < -50:
+			label = ", CLOSED"
+		else:
+			label = ", STATIONARY"
+		f.write(str(datetime.datetime.now()) + ": " + str(data) + label)
 		f.write('\n')
+		print(label)
 		time.sleep(0.01)
 
 
