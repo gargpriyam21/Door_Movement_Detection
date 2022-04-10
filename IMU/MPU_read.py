@@ -9,7 +9,7 @@ import numpy as np
 import requests
 
 # Constants
-BROKER_IP_ADDRESS = 'localhost'
+BROKER_IP_ADDRESS = '192.168.1.233'
 PORT = 1883
 KEEPALIVE = 60
 
@@ -146,7 +146,7 @@ def main():
         if cycle_detected:
             returned_label = get_prediction()
             mqttClient.publish(TOPIC_IMU, returned_label, 2, True)
-
+            print(returned_label, " -------------- ", cycle_label)
         time.sleep(IMU_SAMPLING_RATE)
 
 

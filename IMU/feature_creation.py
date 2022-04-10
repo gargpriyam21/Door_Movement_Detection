@@ -14,8 +14,8 @@ def feature1(window):
     feature = []
     mean_values = np.mean(window, axis=0)
     # print(window)
-    feature.append(mean_values[0])
     feature.append(mean_values[1])
+    feature.append(mean_values[3])
     feature.append(mean_values[5])
 
     return feature
