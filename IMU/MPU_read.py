@@ -111,7 +111,7 @@ def get_prediction():
     payload_scoring = {"input_data": [{"fields": ["f0", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8"],
                                        "values": model_data}]}
     response_scoring = requests.post(
-        'https://us-south.ml.cloud.ibm.com/ml/v4/deployments/3c15ed8f-86f1-441f-a44c-da6174758847/predictions?version=2022-04-10',
+        'https://us-south.ml.cloud.ibm.com/ml/v4/deployments/6e6f0ccf-c699-4069-ab74-bf75951bd88f/predictions?version=2022-04-10',
         json=payload_scoring,
         headers={'Authorization': 'Bearer ' + mltoken})
     result = response_scoring.json()
