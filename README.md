@@ -14,28 +14,30 @@ This repository is created for the sole purpose of uploading codes related to th
 - wiotp-sdk
 - requests
 - RPi.GPIO
+- python3-smbus
+- mpu6050-raspberrypi
 
 ```
 pip install paho-mqtt
 pip install RPi.GPIO
 pip3 install wiotp-sdk
 brew install mosquitto
+apt install python3-smbus
+pip install mpu6050-raspberrypi
+
 ```
+
 ### Hardware
 
-@Brendan can add the hardware requirements
-<!-- - Raspberry PI A,B (We have used Raspberry Pi 3B model)
-- 3 LEDS
-- 5 Resistors
-  - 2 1kOhm Resistors
-  - 3 230 Ohm Resistors
-- 1 Photoresistor (LDR)
-- 1 500 kOhm Potentiometer
-- Jumper Wires
-- BreadBoard
-- 1 220 nF capacitor
-- 1 1 uF capacitor
-- Keyboard, mouse & display (not mandatory) -->
+-Raspberry Pi model 3B
+-MPU6050 accelerometer & gyro
+
+To setup the hardware, connect the following raspberry pi GPIO pins to the corresponding MPU pins.
+
+GPIO 2 to SDA, <br />
+GPIO 3 to SCL, <br />
+5V to VCC, <br />
+GND to GND <br />
 
 ## Classification Model
 
