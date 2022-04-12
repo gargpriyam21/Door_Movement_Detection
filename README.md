@@ -29,7 +29,7 @@ pip install mpu6050-raspberrypi
 
 ### Hardware
 
--Raspberry Pi model 3B
+-Raspberry Pi model 3B<br />
 -MPU6050 accelerometer & gyro
 
 To setup the hardware, connect the following raspberry pi GPIO pins to the corresponding MPU pins.
