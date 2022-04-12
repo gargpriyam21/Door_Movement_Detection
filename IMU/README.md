@@ -18,17 +18,31 @@ Presence of `feature_creation.py` in the same folder as of the main file.
 - wiotp-sdk
 - requests
 - RPi.GPIO
+- python3-smbus
+- mpu6050-raspberrypi
 
 ```
 pip install paho-mqtt
 pip install RPi.GPIO
 pip3 install wiotp-sdk
 brew install mosquitto
+apt install python3-smbus
+pip install mpu6050-raspberrypi
+
 ```
 
 ### Hardware
 
-@Brendan can add the hardware requirements
+-Raspberry Pi model 3B
+-MPU6050 accelerometer & gyro
+
+To connect the MPU6050 to the raspberry pi, make the following connections
+
+RPi                     MPU6050
+GPIO 2 (SDA) |--------| SDA
+GPIO 3 (SCL) |--------| SCL
+5V           |--------| VCC
+GND          |--------| GND
 
 ## Procedure
 
