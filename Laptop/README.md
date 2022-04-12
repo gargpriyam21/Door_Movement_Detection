@@ -1,6 +1,6 @@
 # IoT_ASN4_Group11 - Laptop
 
-This repository is created for the sole purpose of uploading codes related to the Assignment 3 for the course CSC 591 - 022 Internet of Things: Architectures, Applications, and Implementation Spring 2022 of North Carolina State University.
+This repository is created for the sole purpose of uploading codes related to the Assignment 4 for the course CSC 591 - 022 Internet of Things: Architectures, Applications, and Implementation Spring 2022 of North Carolina State University.
 
 ## Environment
 - macOS Monterey Version 12.2.1
