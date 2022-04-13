@@ -6,7 +6,7 @@ import datetime
 
 mpu = mpu6050(0x68) #assign mpu to the right I2C address
 
-#TODO: add MQTT interface
+# This code was used for the purpose of data collection and the initial creation of the training data. This code is later updated for the final execution.
 
 BROKER_IP_ADDRESS = 'localhost'
 PORT = 1883
@@ -51,7 +51,7 @@ def main():
 	#mqttClient.on_disconnect = mqtt_disconnect
 #	mqttClient.connect(host = BROKER_IP_ADDRESS, port = PORT, keepalive = KEEPALIVE)
 #	mqttClient.loop_start()
-	f = open("train_data_new.txt", 'w')
+	f = open("train_data.txt", 'w')
 	print("starting loop")
 	label = ", STATIONARY"
 	pastData = [0,0,0]

@@ -39,11 +39,15 @@ GPIO 3 to SCL, <br />
 5V to VCC, <br />
 GND to GND <br />
 
+## Data Collection
+
+For the collection of the data, the code present in the `Data_Collection` folder was used to collect the data and the respective data was saved in a .txt file.
+
 ## Classification Model
 
 For the prediction of the door status we have used the SVM model and deployed it to the IBM cloud. To which the IBM Cloud provides us the RESP API request on which the result can be requested by calling the API by passing the required data and calling the API.
 
-The Complete procedure for the model implementation and deployment can be found under the `Model Implementation and Deployment` folder.
+The Complete procedure for the model implementation and deployment can be found under the `Model Implementation and Deployment` folder. In the folder there is a .ipynb file which consists of all the Model implementation and deployment.
 
 ## Procedure
 For the execution of each code file, the  a detailed README.md file explaining how to execute the code is available in the respective folder of that device.
