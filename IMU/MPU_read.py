@@ -4,17 +4,12 @@ import paho.mqtt.client as mqtt
 import time
 import datetime
 from copy import deepcopy
+from datetime import datetime
 from feature_creation import create_data
 import numpy as np
 import requests
 import wiotp.sdk.device
 import json
-
-# Constants
-# BROKER_IP_ADDRESS = '192.168.1.233'
-# PORT = 1883
-# KEEPALIVE = 60
-# SUCCESS_CODE = 0
 
 TOPIC_IMU = "DoorStatus"
 BEST_WINDOW_SIZE = 3
@@ -23,24 +18,6 @@ IMU_SAMPLING_RATE = 0.01  # Unit: seconds
 
 # Variables
 mpu = mpu6050(0x68)  # assign mpu to the right I2C address
-
-
-# Callbacks
-# Called on MQTT connect
-# def mqtt_connect(client, data, flags, rc):
-#     if rc == SUCCESS_CODE:
-#         print(f"Connected")
-#     else:
-#         print(f"Failed connection. Code {rc}")
-
-
-# # Called on MQTT disconnect
-# def mqtt_disconnect(client, data, rc):
-#     if rc == SUCCESS_CODE:
-#         print("Graceful disconnect successful")
-#     else:
-#         print(f"Forced disconnect. Code {rc}")
-
 
 def read_MPU(sensor):
 
@@ -136,21 +113,11 @@ def publishEventCallback():
 def main():
     
     try:
+        # Create client
         options = wiotp.sdk.application.parseConfigFile("RPi.yaml")
         mqttClient = wiotp.sdk.application.ApplicationClient(config=options)
         mqttClient.connect()
-        # Create client
-        # mqttClient = mqtt.Client("DoorIMU")
-
-        # Define callbacks
-        # mqttClient.on_connect = mqtt_connect
-        # mqttClient.on_disconnect = mqtt_disconnect
-
-        # Connect to broker
-        # mqttClient.connect(host=BROKER_IP_ADDRESS, port=PORT, keepalive=KEEPALIVE)
-        # mqttClient.loop_start()
-
-        # f = open("door_open.txt", 'w')
+        
         print("starting loop")
 
         while True:
@@ -165,19 +132,20 @@ def main():
                 # Get Prediction from cloud Model
                 returned_label = get_prediction()
 
-                DoorStatus = {'Status' : returned_label}
+                if returned_label != cycle_label:
+                    returned_label = cycle_label
+
+                TIMESTAMP = datetime.now().strftime("%d/%m/%Y %H:%M:%S %p")
+                DoorStatus = {'TimeStamp' : TIMESTAMP , 'Status' : returned_label}
 
                 mqttClient.publishEvent(typeId="IOT_Assignment_4", deviceId="3", eventId=TOPIC_IMU, qos = 2, msgFormat="json", data=DoorStatus, onPublish=publishEventCallback)
                 
-                # publish(TOPIC_IMU, returned_label, 2, True)
-                print(returned_label, " -------------- ", cycle_label)
+                # print(returned_label, " -------------- ", cycle_label)
                 
             time.sleep(IMU_SAMPLING_RATE)
     
-    
     except Exception as e:
         print("Exception: ", e)
-
 
 if __name__ == '__main__':
     main()
