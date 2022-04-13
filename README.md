@@ -43,7 +43,7 @@ GND to GND <br />
 
 For the prediction of the door status we have used the SVM model and deployed it to the IBM cloud. To which the IBM Cloud provides us the RESP API request on which the result can be requested by calling the API by passing the required data and calling the API.
 
-The Complete procedure for the model implementation and deployment can be found under the `Model Implemenation and Implementation` folder.
+The Complete procedure for the model implementation and deployment can be found under the `Model Implementation and Deployment` folder.
 
 ## Procedure
 For the execution of each code file, the  a detailed README.md file explaining how to execute the code is available in the respective folder of that device.
