@@ -1,0 +1,10 @@
+identity:
+    appId: RPiMQTT
+auth:
+    key: a-5q0m9e-ljgprvognh
+    token: Z7(ZqrJe&*R(Fe5c2x
+options:
+    mqtt:
+        cleanStart: True
+        keepAlive: 200
+        port: 1883
