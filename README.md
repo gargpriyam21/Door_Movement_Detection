@@ -11,7 +11,7 @@ The primary goal of the project is to gain hands-on experience working with anal
 5.	The Laptop is subscribed to the topic “DoorStatus” so whenever a prediction is published on the topic is received by  Laptop and we print the door status with timestamp on the Laptop
 
 <h1 align="center">
-    <img src="./imgs/System_Flow.png">
+    <img src="./imgs/System_Flow1.png">
 </h1>
 
 ## Environment
