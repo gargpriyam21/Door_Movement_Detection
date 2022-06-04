@@ -1,6 +1,6 @@
 # Door Movement Detection
 
-The primary goal of the project is to gain hands-on experience working with analytics tools and cloud platforms while using real sensors. In this project, we created an inertial measurement unit (IMU) and a cloud-based system to detect door open and close events. We mounted the IMU sensor to a door and used IMU readings to identify when it was closed and opened.
+The primary goal of the project is to gain hands-on experience working with analytics tools and cloud platforms while using real sensors. In this project, we created an inertial measurement unit (IMU) and a cloud-based machine learning system to detect door open and close events. We mounted the IMU sensor to a door and used IMU readings to identify when it was closed and opened.
 
 # Overview of the System Flow
 
