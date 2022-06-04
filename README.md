@@ -1,6 +1,18 @@
-# IoT_ASN4_Group11
+# Door Movement Detection
 
-This repository is created for the sole purpose of uploading codes related to the Assignment 4 for the course CSC 591 - 022 Internet of Things: Architectures, Applications, and Implementation Spring 2022 of North Carolina State University.
+The primary goal of the project is to gain hands-on experience working with analytics tools and cloud platforms while using real sensors. In this project, we created an inertial measurement unit (IMU) and a cloud-based system to detect door open and close events. We mounted the IMU sensor to a door and used IMU readings to identify when it was closed and opened.
+
+# Overview of the System Flow
+
+1.	We connect the Raspberry Pi and Laptop to the MQTT broker provided by IBM cloud 
+2.	After establishing connection to MQTT  broker, when we open/close the door, we detect an open/close sequence using the logic mentioned in the section 4
+3.	We then create features required for the SVM, and call the REST  API for the model deployed on IBM cloud with feature vector as payload
+4.	Upon receiving the prediction as a response from the REST API, we publish the result to the MQTT broker on the topic “DoorStatus”
+5.	The Laptop is subscribed to the topic “DoorStatus” so whenever a prediction is published on the topic is received by  Laptop and we print the door status with timestamp on the Laptop
+
+<h1 align="center">
+    <img src="./imgs/System_Flow.png">
+</h1>
 
 ## Environment
 - Python 3.7.3
@@ -55,16 +67,3 @@ For the execution of each code file, the  a detailed README.md file explaining h
 IMU : [IMU](./IMU)
 
 Laptop : [Laptop](./Laptop)
-
-# Instructor
-- Dr. Muhammad Shahzad (mshahza@ncsu.edu )
-
-# Teaching Assistants
-- Hassan Ali Khan (hakhan@ncsu.edu)
-
-# Team
-- Priyam Garg (pgarg6@ncsu.edu)
-- Divyang Doshi	(ddoshi2@ncsu.edu)
-- Brendan Driscoll (bhdrisco@ncsu.edu)
-- Jordan Boerger (jwboerge@ncsu.edu)
-- Vishal Veera Reddy (vveerar2@ncsu.edu)
