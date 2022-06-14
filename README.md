@@ -1,14 +1,14 @@
 # Door Movement Detection
 
-The primary goal of the project is to gain hands-on experience working with analytics tools and cloud platforms while using real sensors. In this project, we created an inertial measurement unit (IMU) and a cloud-based machine learning system to detect door open and close events. We mounted the IMU sensor to a door and used IMU readings to identify when it was closed and opened.
+The project's primary goal is to gain hands-on experience working with analytics tools and cloud platforms while using actual sensors. In this project, we created an inertial measurement unit (IMU) and a cloud-based machine learning system to detect door open and close events. We mounted the IMU sensor to a door and used IMU readings to identify when it was closed and opened.
 
 # Overview of the System Flow
 
-1.	We connect the Raspberry Pi and Laptop to the MQTT broker provided by IBM cloud 
-2.	After establishing connection to MQTT  broker, when we open/close the door, we detect an open/close sequence using the logic mentioned in the section 4
+1.	We connect the Raspberry Pi and Laptop to the MQTT broker provided by the IBM cloud 
+2.	After establishing a connection to the MQTT  broker, when we open/close the door, we detect an open/close sequence using the logic mentioned
 3.	We then create features required for the SVM, and call the REST  API for the model deployed on IBM cloud with feature vector as payload
-4.	Upon receiving the prediction as a response from the REST API, we publish the result to the MQTT broker on the topic “DoorStatus”
-5.	The Laptop is subscribed to the topic “DoorStatus” so whenever a prediction is published on the topic is received by  Laptop and we print the door status with timestamp on the Laptop
+4.	Upon receiving the prediction as a response from the REST API, we publish the result to the MQTT broker on the topic "DoorStatus"
+5.	The Laptop is subscribed to the topic "DoorStatus" so whenever a prediction is published on the topic is received by  Laptop, and we print the door status with timestamp on the Laptop
 
 <h1 align="center">
     <img src="./imgs/System_Flow1.png">
